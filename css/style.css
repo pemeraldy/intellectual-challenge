@@ -1,5 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@900&display=swap");
+
 :root {
   --theme-color: #0363d5;
+  --theme-sec: #0653b3;
+  --primary-text: #5b5b5b;
+  --nav-text: rgb(138, 138, 138);
 }
 * {
   margin: 0;
@@ -8,6 +13,7 @@
 body {
   min-height: 100vh;
   background-color: aliceblue;
+  font-family: "Poppins";
 }
 
 .navigation {
@@ -22,13 +28,86 @@ body {
   grid-template-rows: 1fr;
 }
 .dashboard-content {
-  background-color: aliceblue;
+  /* background-color: aliceblue; */
+  background-color: #fff;
 }
 .dashboard-nav {
-  padding: 20px;
-  background-color: orange;
+  background-color: #fff;
+  border-right: 1px solid #5b5b5b;
 }
 .dashboard-nav__logo {
-  font-family: "Great vibes";
+  width: 100%;
+  font-size: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  color: var(--theme-color);
+  font-family: "Montserrat Alternates", sans-serif;
   text-align: center;
+}
+ul.dashboard-nav__list {
+  list-style-type: none;
+  text-align: center;
+  margin-top: 20px;
+}
+.dashboard-nav__item:hover {
+  background: #dfecfc;
+  /* padding: 20px 70px; */
+}
+.dashboard-nav__item.active {
+  background: #dfecfc;
+}
+.dashboard-nav__item {
+  display: flex;
+  font-family: "Poppins";
+  color: var(--nav-text);
+  align-items: center;
+  padding: 20px 70px;
+  transition: 0.4s background-color linear;
+}
+.icon {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  margin-right: 20px;
+}
+.icon-img {
+  width: 100%;
+}
+
+/* Main Content Area- */
+.init-view {
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* background-color: aqua; */
+}
+.init-title {
+  margin-top: 40px;
+  color: var(--primary-text);
+  font-weight: normal;
+}
+.init-desc {
+  color: var(--nav-text);
+  font-weight: normal;
+}
+.btn {
+  display: inline-block;
+  background-color: var(--theme-color);
+  color: #fff;
+  outline: none;
+  border: none;
+  width: 180px;
+  margin-top: 30px;
+  padding: 15px 50px;
+  font-size: 20px;
+  border-radius: 4px;
+  transition: 0.4s background-color ease-in;
+}
+.btn:hover {
+  background-color: var(--theme-sec);
 }
