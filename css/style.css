@@ -25,10 +25,41 @@ body {
   background-color: aliceblue;
 }
 .dashboard-nav {
-  padding: 20px;
-  background-color: orange;
+  /* padding: 20px; */
+  background-color: #fff;
 }
 .dashboard-nav__logo {
+  width: 100%;
+  font-size: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
   font-family: "Great vibes";
   text-align: center;
+}
+ul.dashboard-nav__list {
+  list-style-type: none;
+  text-align: center;
+  margin-top: 20px;
+}
+.dashboard-nav__item:first-child {
+  background: #dfecfc;
+  padding: 20px 70px;
+}
+.dashboard-nav__item {
+  display: flex;
+  align-items: center;
+  padding: 20px 70px;
+  /* padding-left: 100px; */
+  /* justify-content: center; */
+}
+.icon {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  margin-right: 20px;
+}
+.icon-img {
+  width: 100%;
 }
