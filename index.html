@@ -11,6 +11,7 @@
         <nav class="navigation"></nav>
     </header>
     <div class="container">
+        <!-- side navigation -->
         <div class="dashboard-nav">
             <div class="dashboard-nav__logo">
                 <span class="logo">Filo</span>
@@ -24,7 +25,7 @@
                     <span class="icon"> <img class="icon-img" src="./imgs/building-modern.png" alt=""></span>
                     <span class="item-content">Organization</span>
                 </li>
-                <li class="dashboard-nav__item">
+                <li class="dashboard-nav__item active">
                     <span class="icon"> <img class="icon-img" src="./imgs/house.png" alt=""></span>
                     <span class="item-content">Location</span>
                 </li>
@@ -56,7 +57,18 @@
                 </li>
             </ul>
         </div>
-        <div class="dashboard-content"></div>
+
+        <!-- Main contents -->
+        <div class="dashboard-content">
+            <div class="init-view">
+                    <div class="icon-wrap">
+                        <img src="./imgs/house.png" alt="house">
+                    </div>
+                    <h2 class="init-title">Add Locations</h2>
+                    <p class="init-desc">Location are where you receive visitors</p>
+                    <div><button class="btn primary-btn">Add</button></div>
+            </div>
+        </div>
     </div>
 
     <script src="./js/index.js"></script>
