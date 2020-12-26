@@ -1,0 +1,34 @@
+:root {
+  --theme-color: #0363d5;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  background-color: aliceblue;
+}
+
+.navigation {
+  background-color: var(--theme-color);
+  width: 100%;
+  height: 100px;
+}
+.container {
+  display: grid;
+  height: calc(100vh - 100px);
+  grid-template-columns: 300px 1fr;
+  grid-template-rows: 1fr;
+}
+.dashboard-content {
+  background-color: aliceblue;
+}
+.dashboard-nav {
+  padding: 20px;
+  background-color: orange;
+}
+.dashboard-nav__logo {
+  font-family: "Great vibes";
+  text-align: center;
+}
