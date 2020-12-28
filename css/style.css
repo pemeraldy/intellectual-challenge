@@ -86,6 +86,7 @@ body {
 .dashboard-content {
   /* background-color: aliceblue; */
   background-color: #fff;
+  position: relative;
 }
 .dashboard-nav {
   background-color: #fff;
@@ -143,6 +144,19 @@ ul.dashboard-nav__list {
 }
 
 /* Main Content Area- */
+.data-container {
+  display: none;
+}
+.data-container.data-ready {
+  display: block;
+  padding: 10px 15px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background: orange;
+  max-height: calc(100vh - 100px);
+  overflow-y: scroll;
+}
 .init-view {
   width: 100%;
   min-height: 100%;

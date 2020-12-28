@@ -3,7 +3,7 @@ const sidenav = document.querySelector('.dashboard-nav')
 const sidenavItemsWrapper = document.querySelector('.dashboard-nav__list')
 const sidenavItems = document.querySelectorAll('.dashboard-nav__item')
 
-const dataContainer = document.querySelector('.data')
+let dataContainer = document.querySelector('.data-container')
 
 // Toggle active class on click
 sidenavItemsWrapper.addEventListener('click', (e)=>{
@@ -58,19 +58,23 @@ toggler.addEventListener('click', ()=>{
             },
             json: true,
             gzip: true
-    }).then(res =>res.json()).then(res=>res)
+    }).then(res =>res.json()).then(data=>data).then(res=>{
+        res.data.forEach(d=>{
+            // console.log('D',d)
+            dataContainer.classList.add('data-ready')
+            dataContainer.innerHTML += `<div>${d.slug}</div>`
+        })
+        // dataContainer.innerHTML = res.data[0].slug
+        console.log(res);
+    })
     
     } catch (error) {
         console.log(error)
     }
 }
-async function ano(name){
-    const data = await fetch(`https://api.github.com/users/${name}`).then(r => r.json());
-    return data
-}
+
 window.onload = () =>{
     fetchAPi()
-    console.log(ano('pemeraldy'))
     // fetch('https://jsonplaceholder.typicode.com/posts/1')
     // .then(resp => resp.json())
     // .then(resp => console.log(resp))
