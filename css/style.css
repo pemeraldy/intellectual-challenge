@@ -276,6 +276,9 @@ tbody tr td {
   background-color: #fff;
   border: 1px solid #ddd;
 }
+.price {
+  color: rgb(44, 153, 255);
+}
 .red {
   color: crimson;
 }

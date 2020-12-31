@@ -47,6 +47,8 @@ function isLessThanZero(value){
     return Math.sign(value) !== 1 ? 'red':Math.sign(value) == 1 ? 'green': ''
 }
 
+// function changeToLocalNumbers()
+
  function fetchAPi(){
     let tableBody = document.querySelector('.table-body')
     const loader = document.querySelector('.loader')
@@ -69,7 +71,23 @@ function isLessThanZero(value){
             gzip: true
     }).then(res =>res.json()).then(data=>data).then(res=>{        
         loader.style.zIndex = -1
+        
         res.data.forEach((d, index)=>{
+            let price = Number(d.quote.USD.price.toFixed(2))
+            let marketCap = Number(d.quote.USD.market_cap.toFixed(2))
+            let circSupply = Number(d.circulating_supply.toFixed(1))
+            circSupply = (circSupply).toLocaleString('en-US', {
+                style: 'currency',
+                currency: 'USD',
+              })
+            marketCap = (marketCap).toLocaleString('en-US', {
+                style: 'currency',
+                currency: 'USD',
+              })
+            price = (price).toLocaleString('en-US', {
+                style: 'currency',
+                currency: 'USD',
+              })
             tableBody.innerHTML += `<tr class="coins-list">
             <td class="coin-id">${index +1}</td>
             <td class="name">
@@ -77,11 +95,11 @@ function isLessThanZero(value){
                ${d.name}
             </td>
               <td>${d.symbol}</td>
-            <td>$ ${d.quote.USD.price.toFixed(2)}</td>
+            <td class="price"> ${price}</td>
             <td class="${isLessThanZero(d.quote.USD.percent_change_1h)}">${d.quote.USD.percent_change_1h.toFixed(3)} BTC</td>
             <td class="${isLessThanZero(d.quote.USD.percent_change_24h)}">${d.quote.USD.percent_change_24h.toFixed(3)}</td>
-            <td>${d.quote.USD.market_cap.toFixed(1)}</td>
-            <td class="lasty">${d.circulating_supply.toFixed(1)}</td>
+            <td class="price">${marketCap}</td>
+            <td class="price">${circSupply}</td>
           </tr>`
             dataContainer.classList.add('data-ready')
         })
