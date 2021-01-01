@@ -1,4 +1,5 @@
 const toggler = document.querySelector('.nav-toggler')
+const overlay = document.querySelector('.overlay')
 const sidenav = document.querySelector('.dashboard-nav')
 const fetchDataBtn = document.querySelector('.primary-btn')
 const sidenavItemsWrapper = document.querySelector('.dashboard-nav__list')
@@ -34,10 +35,18 @@ sidenavItemsWrapper.addEventListener('click', (e)=>{
 
 // naviagtion toggler 
 toggler.addEventListener('click', ()=>{
+    overlay.classList.toggle('active')
     toggler.classList.toggle('active')
     sidenav.classList.toggle('active')
 })
 
+// Network error feedback
+let feedBack = function(){
+    setTimeout(()=>{ 
+        console.log('Network Issues, please refresh the browser');
+        document.querySelector('.loader-feedback').innerText = "Network Issues, please wait for few more seconnds or refresh the browser."
+    },7000)
+}
 
 // Fetch Data on Click
 fetchDataBtn.addEventListener('click', fetchAPi)
@@ -52,7 +61,9 @@ function isLessThanZero(value){
  function fetchAPi(){
     let tableBody = document.querySelector('.table-body')
     const loader = document.querySelector('.loader')
+    
     try {
+        feedBack()
         loader.style.zIndex = 2
          fetch('https://cors-anywhere.herokuapp.com/https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest',{
             method: 'GET',
@@ -69,7 +80,11 @@ function isLessThanZero(value){
             },
             json: true,
             gzip: true
-    }).then(res =>res.json()).then(data=>data).then(res=>{        
+    }).then(res =>res.json()).then(data=>{
+        clearTimeout(feedBack)
+        document.querySelector('.loader-feedback').innerText = ""
+        return data
+    }).then(res=>{        
         loader.style.zIndex = -1
         
         res.data.forEach((d, index)=>{
@@ -103,7 +118,6 @@ function isLessThanZero(value){
           </tr>`
             dataContainer.classList.add('data-ready')
         })
-        // dataContainer.innerHTML = res.data[0].slug
         console.log(res);
     })
     
