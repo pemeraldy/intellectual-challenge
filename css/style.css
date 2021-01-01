@@ -181,10 +181,34 @@ ul.dashboard-nav__list {
   width: 100%;
   min-height: 100%;
   display: flex;
+  position: relative;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   /* background-color: aqua; */
+}
+.loader-feedback {
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 32%;
+  text-align: center;
+}
+.overlay {
+  content: "";
+  opacity: 0.5;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+
+  display: none;
+  background-color: #5b5b5b;
+}
+.overlay.active {
+  z-index: 0;
+  display: block;
 }
 .init-title {
   margin-top: 40px;
