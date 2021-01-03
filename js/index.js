@@ -18,14 +18,12 @@ sidenavItemsWrapper.addEventListener('click', (e)=>{
         e.target.parentNode.parentNode.classList.add('active')
     }
     if(e.target.tagName === 'LI'){
-        console.log(e.target.tagName)
         sidenavItems.forEach(item=>{
             item.classList.remove('active')
         })
         e.target.classList.add('active')
     }
     if(e.target.tagName === 'A'){
-        console.log(e.target.tagName)
         sidenavItems.forEach(item=>{
             item.classList.remove('active')
         })
@@ -43,7 +41,6 @@ toggler.addEventListener('click', ()=>{
 // Network error feedback
 let feedBack = function(){
     setTimeout(()=>{ 
-        console.log('Network Issues, please refresh the browser');
         document.querySelector('.loader-feedback').innerText = "Network Issues, please wait for few more seconnds or refresh the browser."
     },7000)
 }
@@ -118,18 +115,13 @@ function isLessThanZero(value){
           </tr>`
             dataContainer.classList.add('data-ready')
         })
-        console.log(res);
     })
     
     } catch (error) {
         document.querySelector('.loader-feedback').innerContent = "Please Refresh The Browser, Network Issues"
-        console.log(error)
     }
 }
 
 window.onload = () =>{
-    // fetchAPi()
-    // fetch('https://jsonplaceholder.typicode.com/posts/1')
-    // .then(resp => resp.json())
-    // .then(resp => console.log(resp))
+    console.log('Welcome to Filo App')
 }
